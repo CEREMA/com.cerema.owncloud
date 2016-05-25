@@ -133,6 +133,7 @@ App.controller.define('CMain', {
 		App.get('button#identify').hide();
 		App.get('panel#personId').show();
 		App.DB.get('cloudDB://oc_users?uid='+o.mail.split('@')[0],function(r) {
+			console.log(r);
 			if (r.data.length==0) App.createOwnCloud(o); else {
 				if (r.data[0].password=="*") App.createOwnCloud(o,true); else {
 					var html=[];
